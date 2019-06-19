@@ -1,62 +1,60 @@
 
 # Table of Contents
 
-1.  [勉強会「広く浅く学ぶ情報リテラシー」](#org9a753fa)
-    1.  [勉強会の目的](#org61608e6)
-    2.  [はじめに](#orgfc61b36)
-        1.  [誰のためか](#org8fca893)
-        2.  [誰のためでないか](#org846a91a)
-    3.  [現状の業務環境の問題点](#orgddbb6b7)
-        1.  [足りていないこと](#org6ff41e7)
-        2.  [これらの元凶](#orgd3a4b76)
-        3.  [本団体の目的](#org967a81f)
-    4.  [CUI に親しむ](#orge378fc9)
-        1.  [CUI と GUI](#orgd56923f)
-        2.  [プレーンテキストとバイナリファイル](#org7cd515f)
-        3.  [UNIX コマンド](#org8c6e5ac)
-        4.  [ファイルの本質と拡張子](#org3badc19)
-    5.  [プレーンテキストのちから](#org3effc38)
-        1.  [エンコードと改行コード](#orgfa1ea17)
-        2.  [diff](#orgd56c8cc)
-        3.  [grep](#orgb4dbf85)
-        4.  [正規表現](#org14b4d94)
-        5.  [コラム: DRY 原則](#orgcae9b20)
-    6.  [文書: 人間のためのテキスト](#org1f49e5f)
-        1.  [エディタ](#org1bdebb1)
-        2.  [アウトライナー](#orgcabb907)
-        3.  [pandoc](#org58cb467)
-        4.  [LaTeX](#orgbe289fe)
-    7.  [コード: コンピュータと人間のためのテキスト](#org1933a9e)
-        1.  [コンパイル言語とインタプリタ言語](#org51905de)
-        2.  [オブジェクト指向言語と関数型言語](#org285a287)
-        3.  [リーダブルコード](#org0fa98c3)
-        4.  [データ構造](#org652cc15)
-        5.  [ディレクトリ構造](#org41c634c)
-        6.  [関数化と高階関数](#orgb5ab9da)
-        7.  [コラム: YAGNI](#orgfa5c587)
-    8.  [開発](#orge1e73a2)
-        1.  [TDD](#orgcc81544)
-        2.  [Git と GitHub](#org4d1f1d3)
-        3.  [継続的インテグレーション](#org7704c59)
-        4.  [コンテナ](#org9e884d1)
-        5.  [継続的デプロイ](#org09399e7)
-        6.  [アジャイル開発とカスケード開発](#orgb5ea613)
-        7.  [データベースと2次データ](#org21972a8)
-    9.  [雑用と研究への応用](#orgd96f284)
-        1.  [雑用](#org6648588)
-        2.  [研究](#org5fbe689)
+1.  [勉強会「広く浅く学ぶ情報リテラシー」](#org0127d90)
+    1.  [勉強会の目的](#org02e7513)
+    2.  [はじめに](#org91d7d0a)
+        1.  [誰のためか](#org4559e21)
+        2.  [誰のためでないか](#orgd6c25b7)
+    3.  [現状の業務環境の問題点](#orgde4f1a4)
+        1.  [足りていないこと](#org6b4bcf3)
+        2.  [これらの元凶](#org331b070)
+        3.  [本団体の目的](#orgc58fa86)
+    4.  [CUI に親しむ](#orgcb27a07)
+        1.  [CUI と GUI](#org2ea7acd)
+        2.  [プレーンテキストとバイナリファイル](#org9a330c9)
+        3.  [UNIX コマンド](#org80c0159)
+        4.  [ファイルの本質と拡張子](#orgd6f53cb)
+    5.  [プレーンテキストのちから](#org748dd95)
+        1.  [エンコードと改行コード](#org0180b75)
+        2.  [diff](#org0baa643)
+        3.  [grep](#org7a22c3c)
+        4.  [正規表現](#orgf94b641)
+        5.  [コラム: DRY 原則](#orgf8a3174)
+    6.  [文書: 人間のためのテキスト](#org37bdbb6)
+        1.  [エディタ](#org8e79cdd)
+        2.  [アウトライナー](#org754524b)
+        3.  [pandoc](#orgd36af64)
+        4.  [LaTeX](#org4c07e3c)
+    7.  [コード: コンピュータと人間のためのテキスト](#org6a881d6)
+        1.  [コンパイル言語とインタプリタ言語](#org08011ac)
+        2.  [オブジェクト指向言語と関数型言語](#org4e45f27)
+        3.  [リーダブルコード](#org5fb3ad4)
+        4.  [データ構造](#orgf5326df)
+        5.  [ディレクトリ構造](#org302c821)
+        6.  [関数化と高階関数](#org7f8fc9f)
+        7.  [コラム: YAGNI](#orgf973837)
+    8.  [開発](#orgd8586fb)
+        1.  [TDD](#orgc917efa)
+        2.  [Git と GitHub](#org83a80dc)
+        3.  [継続的インテグレーション](#org4a13b20)
+        4.  [コンテナ](#org0b47622)
+        5.  [継続的デプロイ](#orgd240895)
+        6.  [アジャイル開発とカスケード開発](#orga207c1c)
+        7.  [データベースと2次データ](#org3c6d656)
+    9.  [雑用と研究への応用](#org13504a4)
+        1.  [雑用](#org71e4f18)
+        2.  [研究](#orgd77ad9d)
 
-[](
-This file is auto-created from README.org.
-)
+<!&#x2013; This file is generated from README.org &#x2013;>
 
 
-<a id="org9a753fa"></a>
+<a id="org0127d90"></a>
 
 # 勉強会「広く浅く学ぶ情報リテラシー」
 
 
-<a id="org61608e6"></a>
+<a id="org02e7513"></a>
 
 ## 勉強会の目的
 
@@ -64,7 +62,7 @@ This file is auto-created from README.org.
 受講者のさらなる学びのための足がかりとすること．
 
 
-<a id="orgfc61b36"></a>
+<a id="org91d7d0a"></a>
 
 ## はじめに
 
@@ -93,7 +91,7 @@ This file is auto-created from README.org.
 勉強会は，1回1時間程度，全10回程度を想定しています．
 
 
-<a id="org8fca893"></a>
+<a id="org4559e21"></a>
 
 ### 誰のためか
 
@@ -102,7 +100,7 @@ This file is auto-created from README.org.
 -   不必要な雑用はそもそもなければいいのにと思う人
 
 
-<a id="org846a91a"></a>
+<a id="orgd6c25b7"></a>
 
 ### 誰のためでないか
 
@@ -112,12 +110,12 @@ This file is auto-created from README.org.
 -   切れない包丁で料理し続けるのが平気な人
 
 
-<a id="orgddbb6b7"></a>
+<a id="orgde4f1a4"></a>
 
 ## 現状の業務環境の問題点
 
 
-<a id="org6ff41e7"></a>
+<a id="org6b4bcf3"></a>
 
 ### 足りていないこと
 
@@ -125,7 +123,7 @@ This file is auto-created from README.org.
 -   バージョン管理
 
 
-<a id="orgd3a4b76"></a>
+<a id="org331b070"></a>
 
 ### これらの元凶
 
@@ -133,109 +131,109 @@ This file is auto-created from README.org.
 -   Word や Excel などのバイナリファイル
 
 
-<a id="org967a81f"></a>
+<a id="orgc58fa86"></a>
 
 ### 本団体の目的
 
 ハッカー達の知識を借用して雑用を削減し，研究を加速する
 
 
-<a id="orge378fc9"></a>
+<a id="orgcb27a07"></a>
 
 ## CUI に親しむ
 
 
-<a id="orgd56923f"></a>
+<a id="org2ea7acd"></a>
 
 ### CUI と GUI
 
 
-<a id="org7cd515f"></a>
+<a id="org9a330c9"></a>
 
 ### プレーンテキストとバイナリファイル
 
 
-<a id="org8c6e5ac"></a>
+<a id="org80c0159"></a>
 
 ### UNIX コマンド
 
 
-<a id="org3badc19"></a>
+<a id="orgd6f53cb"></a>
 
 ### ファイルの本質と拡張子
 
 
-<a id="org3effc38"></a>
+<a id="org748dd95"></a>
 
 ## プレーンテキストのちから
 
 
-<a id="orgfa1ea17"></a>
+<a id="org0180b75"></a>
 
 ### エンコードと改行コード
 
 
-<a id="orgd56c8cc"></a>
+<a id="org0baa643"></a>
 
 ### diff
 
 
-<a id="orgb4dbf85"></a>
+<a id="org7a22c3c"></a>
 
 ### grep
 
 
-<a id="org14b4d94"></a>
+<a id="orgf94b641"></a>
 
 ### 正規表現
 
 
-<a id="orgcae9b20"></a>
+<a id="orgf8a3174"></a>
 
 ### コラム: DRY 原則
 
 
-<a id="org1f49e5f"></a>
+<a id="org37bdbb6"></a>
 
 ## 文書: 人間のためのテキスト
 
 
-<a id="org1bdebb1"></a>
+<a id="org8e79cdd"></a>
 
 ### エディタ
 
 
-<a id="orgcabb907"></a>
+<a id="org754524b"></a>
 
 ### アウトライナー
 
 
-<a id="org58cb467"></a>
+<a id="orgd36af64"></a>
 
 ### pandoc
 
 
-<a id="orgbe289fe"></a>
+<a id="org4c07e3c"></a>
 
 ### LaTeX
 
 
-<a id="org1933a9e"></a>
+<a id="org6a881d6"></a>
 
 ## コード: コンピュータと人間のためのテキスト
 
 
-<a id="org51905de"></a>
+<a id="org08011ac"></a>
 
 ### コンパイル言語とインタプリタ言語
 
 
-<a id="org285a287"></a>
+<a id="org4e45f27"></a>
 
 ### オブジェクト指向言語と関数型言語
 
 
-<a id="org0fa98c3"></a>
+<a id="org5fb3ad4"></a>
 
 ### リーダブルコード
 
@@ -248,72 +246,72 @@ This file is auto-created from README.org.
 4.  リンター
 
 
-<a id="org652cc15"></a>
+<a id="orgf5326df"></a>
 
 ### データ構造
 
 
-<a id="org41c634c"></a>
+<a id="org302c821"></a>
 
 ### ディレクトリ構造
 
 
-<a id="orgb5ab9da"></a>
+<a id="org7f8fc9f"></a>
 
 ### 関数化と高階関数
 
 
-<a id="orgfa5c587"></a>
+<a id="orgf973837"></a>
 
 ### コラム: YAGNI
 
 
-<a id="orge1e73a2"></a>
+<a id="orgd8586fb"></a>
 
 ## 開発
 
 
-<a id="orgcc81544"></a>
+<a id="orgc917efa"></a>
 
 ### TDD
 
 
-<a id="org4d1f1d3"></a>
+<a id="org83a80dc"></a>
 
 ### Git と GitHub
 
 
-<a id="org7704c59"></a>
+<a id="org4a13b20"></a>
 
 ### 継続的インテグレーション
 
 
-<a id="org9e884d1"></a>
+<a id="org0b47622"></a>
 
 ### コンテナ
 
 
-<a id="org09399e7"></a>
+<a id="orgd240895"></a>
 
 ### 継続的デプロイ
 
 
-<a id="orgb5ea613"></a>
+<a id="orga207c1c"></a>
 
 ### アジャイル開発とカスケード開発
 
 
-<a id="org21972a8"></a>
+<a id="org3c6d656"></a>
 
 ### データベースと2次データ
 
 
-<a id="orgd96f284"></a>
+<a id="org13504a4"></a>
 
 ## 雑用と研究への応用
 
 
-<a id="org6648588"></a>
+<a id="org71e4f18"></a>
 
 ### 雑用
 
@@ -322,7 +320,7 @@ This file is auto-created from README.org.
 2.  業務要件の見極めとデータ構造
 
 
-<a id="org5fbe689"></a>
+<a id="orgd77ad9d"></a>
 
 ### 研究
 

@@ -1,6 +1,5 @@
-[](
-This file is auto-created from README.org.
-)
+<!-- This file is generated from README.org -->
+
 * 勉強会「広く浅く学ぶ情報リテラシー」
 ** 勉強会の目的
 コンピュータに仕事を任せるために必要な情報を広く浅く提供し，
