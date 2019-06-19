@@ -1,9 +1,11 @@
 #+OPTIONS: toc:nil
-#+begin_src html
+
+#+begin_export html
 <!-- This file is generated from README.org -->
-#+end_src
-#+TOC: headlines 2
+#+end_export
+
 * 勉強会「広く浅く学ぶ情報リテラシー」
+#+TOC: headlines 2
 ** 勉強会の目的
 コンピュータに仕事を任せるために必要な情報を広く浅く提供し，
 受講者のさらなる学びのための足がかりとすること．
