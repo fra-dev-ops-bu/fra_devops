@@ -1,4 +1,6 @@
+#+begin_src html
 <!-- This file is generated from README.org -->
+#+end_src
 
 * 勉強会「広く浅く学ぶ情報リテラシー」
 ** 勉強会の目的
