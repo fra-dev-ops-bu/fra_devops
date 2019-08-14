@@ -1,4 +1,0 @@
-#+TITLE: 勉強会「広く浅く学ぶ情報リテラシー: 研究業務とソフトウェア開発のアナロジー」
-
-* [[https://github.com/kikirinrin/shell2cd/introduction.org][はじめに]]
-* [[https://github.com/kikirinrin/shell2cd/outline.org][勉強会アウトライン]]
