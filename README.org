@@ -1,4 +1,5 @@
 #+TITLE: 勉強会「広く浅く学ぶ情報リテラシー: 研究業務とソフトウェア開発のアナロジーから」
+GitHub Pages: https://kikirinrin.github.io/shell2cd/
 ** 目的
 
 *** 大目的
@@ -22,7 +23,7 @@
 ** 提示する考え方
 - 我々の業務および研究活動の本質は，ソフトウェア開発と同一である
 - 我々が抱える問題は，既にソフトウェア開発の現場では解決されつつある
-- 我々の業務および研究環境は，ソフトウェア開発を手本として改善可能である
+- 我々の業務および研究環境は，ソフトウェア開発手法を手本とすることで改善可能である
  
 ** アウトライン
-https://github.com/kikirinrin/shell2cd/outline.org
+https://github.com/kikirinrin/shell2cd/master/outline.org
