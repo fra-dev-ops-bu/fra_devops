@@ -26,4 +26,4 @@ GitHub Pages: https://kikirinrin.github.io/shell2cd/
 - 我々の業務および研究環境は，ソフトウェア開発手法を手本とすることで改善可能である
  
 ** アウトライン
-https://github.com/kikirinrin/shell2cd/master/outline.org
+https://github.com/kikirinrin/shell2cd/master/blob/outline.org
