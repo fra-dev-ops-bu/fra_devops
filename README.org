@@ -1,4 +1,4 @@
-#+TITLE: 勉強会「広く浅く学ぶ情報リテラシー: 研究業務とソフトウェア開発のアナロジーから」
+#+TITLE: 勉強会「広く浅く学ぶ情報リテラシー: シェルから継続的デリバリーまで」
 GitHub Pages: https://akikirinrin.github.io/shell2cd/
 ** 目的
 
