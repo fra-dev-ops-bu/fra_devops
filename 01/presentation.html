@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>第1回</title>
+<meta name="author" content="Akira Hayashi"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://revealjs.com/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://revealjs.com/css/theme/sky.css" id="theme"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://revealjs.com/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h2>第1回</h2><h3>DevOpsの紹介と議論</h2><br><br><h4>勉強会: 広く浅く学ぶ情報リテラシー（仮）</h4><h4></h4>
+</section>
+<section id="table-of-contents-section">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-org54240dd">はじめに</a></li>
+<li><a href="#/slide-orge508ec0">DevOpsを学ぶ理由</a></li>
+<li><a href="#/slide-org4d03f3a">なんとなくDevOpsを知る</a></li>
+<li><a href="#/slide-org6d43852">議論</a></li>
+<li><a href="#/slide-org8270740">勉強会のアウトライン確定</a></li>
+<li><a href="#/slide-org630e722">インフラ決定</a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<section id="slide-org54240dd">
+<h2 id="org54240dd">はじめに</h2>
+<div class="outline-text-2" id="text-org54240dd">
+</div>
+</section>
+<section id="slide-orgccdfa3e" data-background="fig/kikori.jpg">
+<h4 id="orgccdfa3e">頑張る木こり</h4>
+</section>
+<section id="slide-orge89bcd4">
+<h4 id="orge89bcd4">失敗の轍をたどりつつある</h4>
+<ul>
+<li>開発フェーズは流れに乗ってきた</li>
+<li><font color="red">運用とプロジェクト構成</font>に問題がある</li>
+
+</ul>
+</section>
+<section id="slide-org8a4ff46">
+<h4 id="org8a4ff46">なぜか？</h4>
+<p>
+我々が「運用」の内容を再定義をできていないから
+</p>
+
+<p>
+すぐお隣ではDevOpsが既に解決しているのに&#x2026;
+</p>
+</section>
+<section id="slide-orgbc0d666">
+<h4 id="orgbc0d666">DevOps？</h4>
+<blockquote>
+<p>
+DevOps is a cultural movement that changes how individuals think about their work
+&#x2026;
+enabling people and teams to practice their crafts in effective and lasting ways.
+</p>
+</blockquote>
+<p>
+(Davis &amp; Daniels 2016, "Effective DevOps")
+</p>
+</section>
+<section id="slide-org0b7b917">
+<h4 id="org0b7b917">文化の伝播を阻むもの</h4>
+<ul>
+<li>地理的要因</li>
+
+</ul>
+<p>
+我々の場合: <font color="red">言語</font>
+</p>
+</section>
+<section id="slide-orgd0c1316">
+<h4 id="orgd0c1316">R言語</h4>
+<p>
+資源研究Cにおけるシェア率No.1
+</p>
+
+<p>
+大半のユーザーの用途
+</p>
+<ul>
+<li>統計学的計算</li>
+<li><del>開発</del></li>
+
+</ul>
+
+</section>
+<section id="slide-orgbbef59e">
+<h4 id="orgbbef59e">私たち研究者</h4>
+<p>
+開発者とパラレルワールドに生きている
+</p>
+</section>
+<section id="slide-org4cadb01">
+<h4 id="org4cadb01">どんな問題が起きるか？</h4>
+<ul>
+<li>そもそも問題に気づかない</li>
+<li>それを学ぶ必要性がわからない</li>
+<li>勉強すべきものがたくさんあるように思える</li>
+<li>ツールに固執する</li>
+
+</ul>
+
+</section>
+<section id="slide-org7a80e0c">
+<h4 id="org7a80e0c">結果として</h4>
+<p>
+運用がいつまでも開発のレベルに追いつかない
+</p>
+
+<p>
+プロジェクト全体の生産性は低いまま
+</p>
+
+</section>
+<section id="slide-orgf43fa61">
+<h4 id="orgf43fa61">この勉強会の目的</h4>
+<p>
+文化伝播をたすけること
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orge508ec0">
+<h2 id="orge508ec0">DevOpsを学ぶ理由</h2>
+<div class="outline-text-2" id="text-orge508ec0">
+</div>
+</section>
+<section id="slide-org04c1ea7">
+<h4 id="org04c1ea7">資源評価への要求，ますます高く</h4>
+<div class="outline-text-4" id="text-org04c1ea7">
+</div>
+<ul class="org-ul">
+<li><a id="org581dcec"></a>本プロジェクトの「成功」とは？<br />
+<ul class="org-ul">
+<li><a id="org6ce8ef1"></a>合理的管理<br /></li>
+<li><a id="orgd6b389f"></a>ステークホルダーの相互理解<br /></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="slide-org5996623">
+<h4 id="org5996623">なにが必要？</h4>
+<div class="outline-text-4" id="text-org5996623">
+</div>
+<ul class="org-ul">
+<li><a id="org0fa8351"></a>きめ細やかな計算シナリオ<br /></li>
+<li><a id="org227a0bb"></a>徹底的な議論<br /></li>
+<li><a id="org55b1573"></a>要求への素早い対応<br /></li>
+</ul>
+</section>
+<section id="slide-orgffcd46c">
+<h4 id="orgffcd46c">できますか？</h4>
+<p>
+<b>無理です</b>
+</p>
+<ul class="org-ul">
+<li><a id="orge87a267"></a>理由<br />
+<p>
+計算・提示・議論 のサイクルを増やすには
+</p>
+
+<p>
+ワークフローのコストが大きすぎる
+</p>
+</li>
+</ul>
+</section>
+<section id="slide-org3919712">
+<h4 id="org3919712">では，やらないのですか？</h4>
+<p>
+それは許されない
+</p>
+</section>
+<section id="slide-org7c80c3f">
+<h4 id="org7c80c3f">悪いニュース</h4>
+<div class="outline-text-4" id="text-org7c80c3f">
+</div>
+<ul class="org-ul">
+<li><a id="org2f3e0cf"></a>さらなる負担増<br />
+<p>
+魚種拡大 <del>（正気ですか？）</del>
+</p>
+</li>
+</ul>
+</section>
+<section id="slide-org33103e4">
+<h4 id="org33103e4">研究もしたい</h4>
+<div class="outline-text-4" id="text-org33103e4">
+</div>
+<ul class="org-ul">
+<li><a id="org831f80e"></a>データ資産が活用されていない<br /></li>
+</ul>
+</section>
+<section id="slide-org80777ea">
+<h4 id="org80777ea">つまり</h4>
+<p>
+「木こり」を笑っている場合ではない
+</p>
+
+<p>
+そろそろ刃を研がないといけない
+</p>
+
+<p>
+損益分岐点はとっくに過ぎている
+</p>
+</section>
+<section id="slide-orge4e5d4e">
+<h4 id="orge4e5d4e">どうするべきか？</h4>
+<p>
+我々の仕事をあるべき姿に設計しなおす
+</p>
+
+<p>
+道標: DevOps
+</p>
+</section>
+<section id="slide-org017faf3">
+<h4 id="org017faf3">大まかに言うと</h4>
+</section>
+<section id="slide-orgd2c712b">
+<h4 id="orgd2c712b">ただし</h4>
+
+<div class="figure">
+<p><img src="fig/polygraph.jpg" alt="polygraph.jpg" />
+</p>
+</div>
+</section>
+<section id="slide-org17a4e5a">
+<h4 id="org17a4e5a">優れた翻訳</h4>
+
+<div class="figure">
+<p><img src="fig/ccopy.jpg" alt="ccopy.jpg" />
+</p>
+</div>
+</section>
+<section id="slide-orgfd7481c">
+<h4 id="orgfd7481c">DevOpsを学ぶ理由</h4>
+<ul>
+<li class="fragment appear">我々はもう「開発」しているから</li>
+<li class="fragment appear">横着ではなくレシピだから</li>
+<li class="fragment appear">よい副次的効果があるから</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org5a493af" data-background="fig/large.jpg" data-background-size="800px">
+<h3 id="org5a493af">我々はもう「開発」している</h3>
+</section>
+<section id="slide-org0cbce58">
+<h4 id="org0cbce58">あなたは「開発」していますか？</h4>
+</section>
+<section id="slide-org7cc274b">
+<h4 id="org7cc274b">あなたはプログラムを書きますか？</h4>
+</section>
+<section id="slide-orge891904">
+<h4 id="orge891904">私たちがどこにいるのかを認識しましょう</h4>
+</section>
+<section id="slide-orgb88bb0b">
+<h4 id="orgb88bb0b">私たちはプログラマより「開発」していることもある</h4>
+</section>
+<section id="slide-orgccdfe0a">
+<h4 id="orgccdfe0a">もう「開発」しているんです</h4>
+<ul>
+<li>仕事の要件がソフトウェアと同じだから</li>
+<li>働き方が開発者と同じだから</li>
+<li>プロジェクト構成がソフトウェアと同じだから</li>
+
+</ul>
+</section>
+<section id="slide-org284e7f9">
+<h4 id="org284e7f9">仕事の要件がソフトウェアと同じだから</h4>
+<ul>
+<li class="fragment appear">解決すべき問題がある</li>
+<li class="fragment appear">データに対して何らかの処理をする</li>
+<li class="fragment appear">処理には再現性が求められる</li>
+<li class="fragment appear">製品公開後も迅速な改善を求められる</li>
+
+</ul>
+</section>
+<section id="slide-org135d4e4">
+<h4 id="org135d4e4">仕事のやり方が開発者と同じだから</h4>
+<ul>
+<li class="fragment appear">コンピュータを使う</li>
+<li class="fragment appear">複数人で作業する</li>
+
+</ul>
+</section>
+<section id="slide-orgadc91a8">
+<h4 id="orgadc91a8">プロジェクト構成要素がソフトウェアと同じだから</h4>
+<ul>
+<li>顧客</li>
+<li>製品</li>
+<li>Issue</li>
+
+</ul>
+</section>
+<section id="slide-org2564515">
+<h4 id="org2564515">顧客？</h4>
+<ul>
+<li>水産庁</li>
+<li>漁業者</li>
+
+</ul>
+</section>
+<section id="slide-org2164485">
+<h4 id="org2164485">製品？</h4>
+<p>
+資源評価
+</p>
+</section>
+<section id="slide-org59f1b51">
+<h4 id="org59f1b51">一般的なソフトウェア製品の構成</h4>
+<p>
+図を入れる
+</p>
+<ul>
+<li>データ</li>
+<li>コード</li>
+<li>テスト</li>
+<li>ドキュメント</li>
+
+</ul>
+</section>
+<section id="slide-org5618557">
+<h4 id="org5618557">データ？</h4>
+<div class="outline-text-4" id="text-org5618557">
+</div>
+<ul class="org-ul">
+<li><a id="org9039175"></a>漁獲量<br /></li>
+<li><a id="org512a12d"></a>生物データ<br /></li>
+<li><a id="org69c4408"></a>パラメータ<br /></li>
+<li><a id="org247f286"></a>文章<br /></li>
+</ul>
+</section>
+<section id="slide-org21a9d86">
+<h4 id="org21a9d86">コード？</h4>
+<div class="outline-text-4" id="text-org21a9d86">
+</div>
+<ul class="org-ul">
+<li><a id="orgcc848e2"></a>計算プログラム<br /></li>
+<li><a id="org6565459"></a>作図プログラム<br /></li>
+<li><a id="org47f2b26"></a>文書整形プログラム<br /></li>
+</ul>
+</section>
+<section id="slide-org11b4c40">
+<h4 id="org11b4c40">テスト？</h4>
+<div class="outline-text-4" id="text-org11b4c40">
+</div>
+<ul class="org-ul">
+<li><a id="org05df315"></a>プログラムの動作<br /></li>
+<li><a id="org3e0ae7c"></a>計算結果<br /></li>
+<li><a id="org5db5f01"></a>データの仕様<br /></li>
+<li><a id="orgbe7a545"></a>誤字脱字<br /></li>
+<li><a id="org269ced0"></a>その他改善案すべて<br /></li>
+</ul>
+</section>
+<section id="slide-org6f79b05">
+<h4 id="org6f79b05">ドキュメント？</h4>
+<div class="outline-text-4" id="text-org6f79b05">
+</div>
+<ul class="org-ul">
+<li><a id="org43b7100"></a>報告書<br /></li>
+<li><a id="orgf24e2eb"></a>プレゼンテーションファイル<br /></li>
+</ul>
+</section>
+<section id="slide-org35877b5">
+<h4 id="org35877b5">プロジェクト構成要素がソフトウェアと同じだから</h4>
+<ul>
+<li><del>顧客</del></li>
+<li><del>製品</del></li>
+<li>Issue</li>
+
+</ul>
+</section>
+<section id="slide-org30717b6">
+<h4 id="org30717b6">Issue？</h4>
+<ul>
+<li>プログラムのバグ</li>
+<li>誤字脱字</li>
+<li>顧客からの要求</li>
+<li>取り組むべき課題</li>
+
+</ul>
+
+</section>
+<section id="slide-orga9becc0">
+<h4 id="orga9becc0">以上のように</h4>
+<p>
+我々の仕事の本質: ソフトウェア開発者と同じ
+</p>
+<ul>
+<li>仕事の要件</li>
+<li>働き方</li>
+<li>プロジェクト構成要素</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org4ea0ce9" data-background="fig/cook.jpg">
+<h3 id="org4ea0ce9">横着ではなくレシピ</h3>
+</section>
+<section id="slide-orge788b6a">
+<h4 id="orge788b6a">自動化と聞いて眉を顰める風潮を感じる</h4>
+<ul>
+<li>いいから仕事してよ</li>
+<li>手を抜きたいだけでしょ</li>
+<li>また効率コーリツ言ってる</li>
+
+</ul>
+</section>
+<section id="slide-orgb89590c">
+<h4 id="orgb89590c">誤解を解きたい</h4>
+<p>
+自動化は（ただの）構成要素
+</p>
+
+<p>
+（目標はもっと先にある）
+</p>
+
+<p>
+我々にとって自動化は不可欠
+</p>
+
+</section>
+<section id="slide-orge608fd5">
+<h4 id="orge608fd5">なぜ自動化する必要がある？</h4>
+<p>
+それが正しいから
+</p>
+</section>
+<section id="slide-orgbbfd964">
+<h4 id="orgbbfd964">「正しい」とは</h4>
+<p>
+対義語: 正しくない -&gt; 不正
+</p>
+</section>
+<section id="slide-org9671f05">
+<h4 id="org9671f05">不正の例</h4>
+<p>
+マラソンのコースをショートカット
+</p>
+<ul>
+<li class="fragment appear">正しい経路: 道路に沿った道</li>
+<li class="fragment appear">不正な経路: スタートとゴールを結んだ線</li>
+
+</ul>
+</section>
+<section id="slide-org2e4f365">
+<h4 id="org2e4f365">それに対して</h4>
+<p>
+我々の仕事では
+</p>
+<ul>
+<li class="fragment appear"><del>正しい</del> <font color="red">不適切な</font>経路: 道路に沿った道</li>
+<li class="fragment appear"><del>不正な</del> <font color="red">正しい</font>経路: スタートとゴールを結んだ線</li>
+
+</ul>
+
+</section>
+<section id="slide-org31f1212">
+<h4 id="org31f1212">なぜ？</h4>
+<p>
+仕事は旅行とは違うから
+</p>
+
+<p>
+過程を楽しむべきものではない
+</p>
+
+</section>
+<section id="slide-orgdffe515">
+<h4 id="orgdffe515">自動化していない状態とは？</h4>
+<p>
+コンピュータからみた我々
+</p>
+
+<p>
+<b>仕事の遅い奴隷</b>
+</p>
+
+</section>
+<section id="slide-org843beb0">
+<h4 id="org843beb0">だから</h4>
+<p>
+レシピ（= DevOps）に従って，
+</p>
+
+<p>
+コンピュータとうまく役割分担しましょう
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org62697de">
+<h3 id="org62697de">よい副次的効果</h3>
+<div class="outline-text-3" id="text-org62697de">
+</div>
+</section>
+<section id="slide-org0e3ac68">
+<h4 id="org0e3ac68">プロジェクトの透明性</h4>
+<p>
+着任初日から働き始められる
+</p>
+</section>
+<section id="slide-org87ca13c">
+<h4 id="org87ca13c">学習文化</h4>
+<ul>
+<li>教え合い</li>
+<li>成長速度の加速</li>
+
+</ul>
+</section>
+<section id="slide-org64dbb39">
+<h4 id="org64dbb39">引き継がれなかったら意味がない</h4>
+
+<div class="figure">
+<p><img src="fig/phaitos.jpg" alt="phaitos.jpg" />
+</p>
+</div>
+</section>
+<section id="slide-orgd50ba54">
+<h4 id="orgd50ba54">時間と心のゆとり</h4>
+</section>
+</section>
+<section>
+<section id="slide-org52f8932">
+<h3 id="org52f8932">まとめ</h3>
+<p>
+DevOpsを学ぶ必要性を感じましたか？
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org4d03f3a">
+<h2 id="org4d03f3a">なんとなくDevOpsを知る</h2>
+<div class="outline-text-2" id="text-org4d03f3a">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org4660f3c">
+<h3 id="org4660f3c">構成要素</h3>
+<ul>
+<li>バージョン管理システム</li>
+<li>チケット管理システム</li>
+<li>自動テスト</li>
+<li>自動ビルド</li>
+<li>コミュニケーションツール
+<ul>
+<li>チャット</li>
+<li>bot</li>
+
+</ul></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org40e8409">
+<h3 id="org40e8409">&#x2026;イメージ，湧きますか（不安）？</h3>
+<p>
+Any questions?
+</p>
+<ul>
+<li>身近なもので例えると？</li>
+<li>我々の仕事はどう変わる？（<a href="https://github.com/akikirinrin/gomasaba/issues">資源評価の場合</a>）</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org6d43852">
+<h2 id="org6d43852">議論</h2>
+</section>
+</section>
+<section>
+<section id="slide-org8270740">
+<h2 id="org8270740">勉強会のアウトライン確定</h2>
+<ul>
+<li><a href="https://akikirinrin.github.io/shell2cd/outline.html">GitHub</a></li>
+<li><a href="../outline.html">file</a></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org630e722">
+<h2 id="org630e722">インフラ決定</h2>
+<ul>
+<li>Slack</li>
+<li>Microsoft Teams</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://revealjs.com/lib/js/head.min.js"></script>
+<script src="https://revealjs.com/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'slide', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: 'https://revealjs.com/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://revealjs.com/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://revealjs.com/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://revealjs.com/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://revealjs.com/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+</script>
+</body>
+</html>
