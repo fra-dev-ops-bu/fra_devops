@@ -1,0 +1,93 @@
+#+TITLE: 第2回
+#+SUBTITLE: プロトタイプ作成 &@@latex:\\@@ @@html:<br>@@ パッケージセットアップ
+#+Author: Akira Hayashi
+
+#+REVEAL_ROOT: https://revealjs.com/
+#+REVEAL_HLEVEL: 1
+#+REVEAL_THEME: black
+#+REVEAL_TRANS: slide
+#+REVEAL_TITLE_SLIDE: <h2>%t</h2><h3>%s</h2><br><br><h4>勉強会: DevOpsで論文を書こう！</h4><h4>%m</h4>
+
+#+OPTIONS: num:nil toc:1 reveal_toc_footer:t
+#+MACRO: color @@html:<font color="$1">$2</font>@@
+* 勉強会の方針
+** やること
+Rパッケージをベースに，
+
+DevOpsで論文を書きます
+*** ゴールは?
+- ビルドの概念を理解する
+- 高次元の問題をIssueとして扱う感覚をつかむ
+
+_*開発フローと研究フローの類似性を理解すること*_
+*** メリット
+- スピード
+- 再現性
+** やらないこと
+- 関数のブラッシュアップ
+- 深い考察
+* プロトタイプ作成
+** チーム分け
+2チームに別れます
+** テーマの決定
+何の研究をするか決めましょう
+#+BEGIN_SRC R
+  head(cars)
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+          5.1         3.5          1.4         0.2  setosa
+          4.9         3.0          1.4         0.2  setosa
+          4.7         3.2          1.3         0.2  setosa
+          4.6         3.1          1.5         0.2  setosa
+          5.0         3.6          1.4         0.2  setosa
+          5.4         3.9          1.7         0.4  setosa
+
+#+END_EXAMPLE
+
+
+#+BEGIN_SRC R
+head(cars)
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+speed dist
+     4    2
+     4   10
+     7    4
+     7   22
+     8   16
+     9   10
+#+END_EXAMPLE
+
+
+** プロトタイプを作りましょう
+- データ
+- 関数
+- 返り値
+- ドキュメント構成
+* パッケージセットアップ
+** パッケージ作成
+#+BEGIN_SRC R
+  usethis::create_package("YOUR_PKGNAME")
+#+END_SRC
+** vignette作成
+#+BEGIN_SRC R
+  usethis::use_vignette("SHORT_TITLE")
+#+END_SRC
+** データ作成
+#+BEGIN_SRC R
+  usethis::use_data-raw()
+#+END_SRC
+** 研究
+- 関数作成
+- テスト
+- 執筆
+* 次回予告
+GitHubフローに入ります
+- GitHub設定
+- Slack設定
+- 修正に関する議論
+- Issue登録
+- PR
