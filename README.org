@@ -1,7 +1,7 @@
 #+TITLE: fraDevOps
 * 勉強会「DevOpsで論文を書こう！」
 * 勉強会「広く浅く学ぶ情報リテラシー: シェルから継続的デリバリーまで」
-GitHub Pages: https://akikirinrin.github.io/workshop_devops/
+GitHub Pages: https://akikirinrin.github.io/fra_devops/
 ** 目的
 
 *** 大目的
