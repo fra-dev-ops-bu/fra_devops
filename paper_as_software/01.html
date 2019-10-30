@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>第2回</title>
+<meta name="author" content="Akira Hayashi"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://revealjs.com/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://revealjs.com/css/theme/black.css" id="theme"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://revealjs.com/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h2>第2回</h2><h3>プロトタイプ作成 &amp; <br> パッケージセットアップ</h2><br><br><h4>勉強会: DevOpsで論文を書こう！</h4><h4></h4>
+</section>
+<section id="table-of-contents-section">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-org99f5825">勉強会の方針</a></li>
+<li><a href="#/slide-org156ae01">プロトタイプ作成</a></li>
+<li><a href="#/slide-orge5a4e7f">パッケージセットアップ</a></li>
+<li><a href="#/slide-org697de3c">次回予告</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<section id="slide-org99f5825">
+<h2 id="org99f5825">勉強会の方針</h2>
+<div class="outline-text-2" id="text-org99f5825">
+</div>
+</section>
+<section id="slide-orgb26fca9">
+<h3 id="orgb26fca9">やること</h3>
+<p>
+Rパッケージをベースに，
+</p>
+
+<p>
+DevOpsで論文を書きます
+</p>
+</section>
+<section id="slide-org1cf0098">
+<h3 id="org1cf0098">やらないこと</h3>
+<ul>
+<li>関数のブラッシュアップ</li>
+<li>深い考察</li>
+
+</ul>
+</section>
+<section id="slide-orgdf715b3">
+<h3 id="orgdf715b3">勉強会のゴール</h3>
+<ul>
+<li>ビルドの概念を理解する</li>
+<li>高次元の問題をIssueとして扱う感覚をつかむ</li>
+
+</ul>
+
+<p>
+<span class="underline"><b>開発フローと研究フローの類似性を理解すること</b></span>
+</p>
+</section>
+<section id="slide-org1b96f70">
+<h4 id="org1b96f70">メリット</h4>
+<ul>
+<li>スピード</li>
+<li>再現性</li>
+
+</ul>
+</section>
+<section id="slide-org9a23ff2">
+<h4 id="org9a23ff2">今日の会議がどう変わるか</h4>
+<div class="outline-text-4" id="text-org9a23ff2">
+</div>
+<ul class="org-ul">
+<li><a id="org6b1729c"></a>before<br />
+<ul>
+<li>βの値を刻んだ場合（0.80, 0.85, &#x2026;, 1.05）</li>
+<li>2030年にMSY水準の親魚量の達成確率が50%となる場合</li>
+<li>小型魚のFを削減した場合</li>
+<li>規制を徐々に強める場合</li>
+<li>最初は厳しくし，一定期間後，制限を緩和する場合</li>
+
+</ul>
+</li>
+<li><a id="org2dcc92e"></a>after<br />
+<ul>
+<li>要件定義</li>
+<li>Issue登録 or プロジェクト化</li>
+<li>タスク割当</li>
+<li>ブランチ作成</li>
+
+</ul>
+</li>
+</ul>
+</section>
+<section id="slide-org552a329">
+<h4 id="org552a329">解決すべき問題は多い</h4>
+<ul>
+<li>バージョン管理ってどうやるの？</li>
+<li>よい関数を作るには？</li>
+<li>どこまでプレーンテキストでやるべき？</li>
+
+</ul>
+<p>
+<b>「文化」がないと無理！</b>
+</p>
+
+<p>
+ところで，研究者としての成長は&#x2026;？
+</p>
+</section>
+<section id="slide-org8a79c4c">
+<h4 id="org8a79c4c">我々の現在地を把握してみましょう</h4>
+</section>
+<section id="slide-org1c5217e">
+<h4 id="org1c5217e">ということで</h4>
+<p>
+まずは手を動かしながら，小さく始めましょう！
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org156ae01">
+<h2 id="org156ae01">プロトタイプ作成</h2>
+<div class="outline-text-2" id="text-org156ae01">
+</div>
+</section>
+<section id="slide-org7d7d163">
+<h3 id="org7d7d163">チーム分け</h3>
+<p>
+2チームに別れます
+</p>
+</section>
+<section id="slide-org8c1401d">
+<h3 id="org8c1401d">テーマの決定</h3>
+<p>
+何の研究をするか決めましょう
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R">head<span style="color: #61bfff;">(</span>cars<span style="color: #61bfff;">)</span>
+</pre>
+</div>
+
+<pre class="example">
+Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+        5.1         3.5          1.4         0.2  setosa
+        4.9         3.0          1.4         0.2  setosa
+        4.7         3.2          1.3         0.2  setosa
+        4.6         3.1          1.5         0.2  setosa
+        5.0         3.6          1.4         0.2  setosa
+        5.4         3.9          1.7         0.4  setosa
+
+</pre>
+
+
+<div class="org-src-container">
+
+<pre  class="src src-R">head<span style="color: #61bfff;">(</span>cars<span style="color: #61bfff;">)</span>
+</pre>
+</div>
+
+<pre class="example">
+speed dist
+     4    2
+     4   10
+     7    4
+     7   22
+     8   16
+     9   10
+</pre>
+
+
+</section>
+<section id="slide-org819298b">
+<h3 id="org819298b">プロトタイプを作りましょう</h3>
+<ul>
+<li>データ</li>
+<li>関数</li>
+<li>返り値</li>
+<li>ドキュメント構成</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orge5a4e7f">
+<h2 id="orge5a4e7f">パッケージセットアップ</h2>
+<div class="outline-text-2" id="text-orge5a4e7f">
+</div>
+</section>
+<section id="slide-org4208aff">
+<h3 id="org4208aff">パッケージ作成</h3>
+<div class="org-src-container">
+
+<pre  class="src src-R">usethis::create_package<span style="color: #61bfff;">(</span><span style="color: #f1fa8c;">"YOUR_PKGNAME"</span><span style="color: #61bfff;">)</span>
+</pre>
+</div>
+</section>
+<section id="slide-org889beb6">
+<h3 id="org889beb6">vignette作成</h3>
+<div class="org-src-container">
+
+<pre  class="src src-R">usethis::use_vignette<span style="color: #61bfff;">(</span><span style="color: #f1fa8c;">"SHORT_TITLE"</span><span style="color: #61bfff;">)</span>
+</pre>
+</div>
+</section>
+<section id="slide-orgeb18ef3">
+<h3 id="orgeb18ef3">データ作成</h3>
+<div class="org-src-container">
+
+<pre  class="src src-R">usethis::use_data-raw<span style="color: #61bfff;">()</span>
+</pre>
+</div>
+</section>
+<section id="slide-org5d2a6b1">
+<h3 id="org5d2a6b1">研究</h3>
+<ul>
+<li>関数作成</li>
+<li>テスト</li>
+<li>執筆</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org697de3c">
+<h2 id="org697de3c">次回予告</h2>
+<p>
+GitHubフローに入ります
+</p>
+<ul>
+<li>GitHub設定</li>
+<li>Slack設定</li>
+<li>修正に関する議論</li>
+<li>Issue登録</li>
+<li>PR</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://revealjs.com/lib/js/head.min.js"></script>
+<script src="https://revealjs.com/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'slide', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: 'https://revealjs.com/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://revealjs.com/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://revealjs.com/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://revealjs.com/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://revealjs.com/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+</script>
+</body>
+</html>
