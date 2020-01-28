@@ -1,4 +1,4 @@
-# fra_DevOps
+# FRA_DevOps
 
 ## 用途
 - 勉強会資料の集約: 暗黙知を形式知に
