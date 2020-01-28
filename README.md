@@ -1,3 +1,5 @@
 # fra_DevOps
-GitHub Pages: <https://akikirinrin.github.io/fra_devops/>
-水産研究・教育機構へのDevOps普及プロジェクト
+
+## 用途
+- 勉強会資料の集約: 暗黙知を形式知に
+- 年次活動レビュー: DevOps文化が根付いていく様子を記録する
