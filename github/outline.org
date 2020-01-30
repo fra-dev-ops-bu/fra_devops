@@ -1,0 +1,50 @@
+#+title: 講習会『GitHubと友達になろう』
+* GitHubってなに？
+** どんなもの？
+*** バージョン管理
+*** チケット管理
+*** レビューシステム
+** 特に重要な機能
+*** CodeとBranch
+*** Issue
+*** Pull requests
+* Gitコマンド徹底演習
+** 既にあるプロジェクトに加わる時
+- リポジトリを手元に持ってくる: git clone
+- 状況を見る: git status
+- 履歴を見る: git log, git shortlog
+- 仕事の登録準備と登録: git add & commit
+- 編集する
+- git status
+- 差分を見る: git diff
+- git add & commit
+- 仕事を他の人にも見えるところへバックアップ: git push
+
+** こんな時どうするの
+- 意図しない変更を元に戻したい: checkout
+- バージョン管理したくないファイルを無視する: .gitignoreファイル
+- ブランチを作りたい: git checkout -b
+- 削除したい: git rm
+- 名前を変えたい: git mv
+- コミットをなかったことにしたい
+  - 公開した後だったので取り消しますと宣言するとき: git revert
+  - 公開前だったので手元で直す時: git reset
+- 自分の仕事を、特定の仕事の後にやったことにする: git rebase
+* GitHubフローを回してみよう
+** Issue: 問題の認識
+** Assign: 仕事の発生
+** 話し合い〜ブランチ作成
+** コミット
+*** メッセージの書き方
+** コミットログをきれいにする
+** push
+** プルリクエスト
+** レビュー依頼
+** merge: 承認
+* 余談
+- gitmoji
+- git bisect
+- git cherry-pick
+- git clean
+- git grep
+- git stash
